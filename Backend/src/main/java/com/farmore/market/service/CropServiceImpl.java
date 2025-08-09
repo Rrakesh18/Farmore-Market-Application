@@ -1,8 +1,4 @@
 package com.farmore.market.service;
-
-import com.farmore.market.dto.CropDto;
-import com.farmore.market.dto.CropListingDto;
-import com.farmore.market.dto.FarmerInfoDto;
 import com.farmore.market.model.Crop;
 import com.farmore.market.model.User;
 import com.farmore.market.repository.CropRepository;
@@ -10,62 +6,50 @@ import com.farmore.market.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import java.util.Map;
+import java.util.Optional;
 @Service
 public class CropServiceImpl implements CropService {
-
-    @Autowired
-    private CropRepository croprepository;
-
-    @Autowired
-    private UserRepository userrepository;
+    @Autowired private CropRepository cropRepository;
+    @Autowired private UserRepository userRepository;
 
     @Override
-    public Crop createCrop(CropDto cropdto) {
-        User farmer = userrepository.findById(cropdto.getFarmerId())
-                .orElseThrow(() -> new RuntimeException("Farmer not found with id: " + cropdto.getFarmerId()));
-
+    public Crop createCrop(Map<String, Object> payload) {
+        Long farmerId = Long.parseLong(payload.get("farmerId").toString());
+        User farmer = userRepository.findById(farmerId)
+            .orElseThrow(() -> new RuntimeException("Farmer not found"));
+        
         Crop crop = new Crop();
-        crop.setCropName(cropdto.getCropName());
-        crop.setPrice(cropdto.getPrice());
-        crop.setQuantity(cropdto.getQuantity());
-        crop.setLocation(cropdto.getLocation());
-        crop.setLandType(cropdto.getLandType());
-        crop.setFertilizersUsed(cropdto.getFertilizersUsed());
+        crop.setCropName((String) payload.get("cropName"));
+        crop.setPrice(Double.parseDouble(payload.get("price").toString()));
+        crop.setQuantity(Double.parseDouble(payload.get("quantity").toString()));
+        crop.setLocation((String) payload.get("location"));
+        crop.setLandType((String) payload.get("landType"));
+        crop.setFertilizersUsed((String) payload.get("fertilizersUsed"));
+        crop.setImageUrl((String) payload.get("imageUrl"));
         crop.setFarmer(farmer);
-
-        return croprepository.save(crop);
+        return cropRepository.save(crop);
     }
-
+    
     @Override
-    public List<Crop> getCropsByFarmer(Long farmerId) {
-        return croprepository.findByFarmerId(farmerId);
+    public List<Crop> getAllCrops() {
+        return cropRepository.findAllCropsWithFarmer();
     }
-
+    
     @Override
-    public List<CropListingDto> getAllCropsForListing() {
-        return croprepository.findAll().stream()
-                .map(this::convertToCropListingDto)
-                .collect(Collectors.toList());
+    public List<Crop> getCropsByFarmer(Long farmerId) { return cropRepository.findByFarmerId(farmerId); }
+    
+    @Override
+    public Optional<Crop> updateCrop(Long cropId, Map<String, Object> payload) {
+        return cropRepository.findById(cropId).map(existingCrop -> {
+            existingCrop.setCropName((String) payload.get("cropName"));
+            existingCrop.setPrice(Double.parseDouble(payload.get("price").toString()));
+            existingCrop.setQuantity(Double.parseDouble(payload.get("quantity").toString()));
+            existingCrop.setImageUrl((String) payload.get("imageUrl"));
+            return cropRepository.save(existingCrop);
+        });
     }
-
-    // Helper method to convert a Crop entity to a CropListingDto
-    private CropListingDto convertToCropListingDto(Crop crop) {
-        CropListingDto dto = new CropListingDto();
-        dto.setId(crop.getId());
-        dto.setCropName(crop.getCropName());
-        dto.setPrice(crop.getPrice());
-        dto.setQuantity(crop.getQuantity());
-        dto.setLocation(crop.getLocation());
-        dto.setLandType(crop.getLandType());
-        dto.setFertilizersUsed(crop.getFertilizersUsed());
-        
-        if (crop.getFarmer() != null) {
-            User farmer = crop.getFarmer();
-            dto.setFarmerInfo(new FarmerInfoDto(farmer.getName(), farmer.getEmail(), farmer.getVillage()));
-        }
-        
-        return dto;
-    }
+    
+    @Override
+    public void deleteCrop(Long cropId) { cropRepository.deleteById(cropId); }
 }

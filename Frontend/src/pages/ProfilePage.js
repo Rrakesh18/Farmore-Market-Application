@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import InfoPage from '../components/InfoPage';
 
 function ProfilePage() {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     const { t } = useLanguage();
     return (
         <InfoPage title={t('myProfile')}>
@@ -14,8 +14,10 @@ function ProfilePage() {
                 <li className="list-group-item"><strong>{t('location')}:</strong> {user.village}</li>
                 <li className="list-group-item"><strong>{t('role')}:</strong> <span className="text-capitalize fw-semibold">{t(user.role)}</span></li>
             </ul>
+            <div className="text-center mt-4">
+                <button onClick={logout} className="btn btn-danger">{t('logout')}</button>
+            </div>
         </InfoPage>
     );
 }
-
 export default ProfilePage;

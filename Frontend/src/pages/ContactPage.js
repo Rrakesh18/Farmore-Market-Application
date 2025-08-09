@@ -19,5 +19,4 @@ function ContactPage() {
         </InfoPage>
     );
 }
-
 export default ContactPage;

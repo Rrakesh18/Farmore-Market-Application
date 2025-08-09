@@ -25,5 +25,4 @@ function HomePage({ navigate }) {
     </div>
   );
 }
-
 export default HomePage;

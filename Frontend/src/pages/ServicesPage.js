@@ -15,5 +15,4 @@ function ServicesPage() {
         </InfoPage>
     );
 }
-
 export default ServicesPage;

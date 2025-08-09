@@ -14,5 +14,4 @@ function AboutUsPage() {
         </InfoPage>
     );
 }
-
 export default AboutUsPage;

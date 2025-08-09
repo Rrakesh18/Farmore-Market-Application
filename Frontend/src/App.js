@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from './context/AuthContext';
 import { useLanguage } from './context/LanguageContext';
-
-// Import Pages
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -12,10 +10,10 @@ import AboutUsPage from './pages/AboutUsPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import ProfilePage from './pages/ProfilePage';
-
-// Import Components
 import AppHeader from './components/AppHeader';
 import Marquee from './components/Marquee';
+
+
 
 function App() {
   const [page, setPage] = useState('home');
@@ -41,7 +39,6 @@ function App() {
         }
     }
     
-    // Authenticated Routes
     return (
         <div>
             <AppHeader navigate={navigate} />

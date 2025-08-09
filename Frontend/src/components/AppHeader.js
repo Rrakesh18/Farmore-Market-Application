@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 
 function AppHeader({ navigate }) {
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
     const { t } = useLanguage();
     return (
         <header className="navbar navbar-expand-md navbar-dark bg-success shadow sticky-top">
@@ -19,8 +19,7 @@ function AppHeader({ navigate }) {
                         <li className="nav-item"><button className="nav-link" onClick={() => navigate('contact')}>{t('contact')}</button></li>
                     </ul>
                     <div className="d-flex align-items-center ms-md-auto">
-                        <button className="nav-link text-white fw-semibold me-3" onClick={() => navigate('profile')}>{t('profile')}</button>
-                        <button onClick={logout} className="btn btn-danger btn-sm">{t('logout')}</button>
+                        <button className="nav-link text-white fw-semibold" onClick={() => navigate('profile')}>{t('profile')}</button>
                     </div>
                 </div>
             </div>
