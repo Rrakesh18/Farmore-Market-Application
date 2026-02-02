@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+🌾 FarMore Market
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FarMore Market is a full-stack web application designed to help farmers directly list and sell their crops while enabling buyers to explore fresh agricultural produce.
+The platform focuses on simplicity, scalability, and real-world use cases in the agriculture domain.
 
-## Available Scripts
+🚀 Features
 
-In the project directory, you can run:
+👨‍🌾 Farmer registration and login
 
-### `npm start`
+🌱 Add, update, and delete crop listings
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📊 Farmer dashboard with multiple crop entries
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🌍 Multilingual support for better accessibility
 
-### `npm test`
+🔄 RESTful APIs for seamless frontend–backend communication
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🧪 API testing using Postman
 
-### `npm run build`
+🎨 Responsive UI using Bootstrap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🛠️ Tech Stack
+Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+HTML5
 
-### `npm run eject`
+CSS3
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Bootstrap
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Axios (for API calls)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Java
 
-## Learn More
+Spring Boot
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Spring MVC
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Spring Data JPA
 
-### Code Splitting
+REST APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Database
 
-### Analyzing the Bundle Size
+MySQL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Tools & Platforms
 
-### Making a Progressive Web App
+Postman (API testing)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Git & GitHub (version control)
+🧩 Modules
+👤 User Module
 
-### Advanced Configuration
+User registration and authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Role-based access (Farmer)
 
-### Deployment
+🌾 Crop Module
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Add crop details (name, quantity, price, description)
 
-### `npm run build` fails to minify
+View all listed crops
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Update and delete crops
+📌 API Testing
+
+All backend APIs are tested using Postman
+
+Supports CRUD operations for Users and Crops
+
+🎯 Future Enhancements
+
+Buyer login and order placement
+
+Payment gateway integration
+
+Admin dashboard
+
+Advanced search and filtering
+
+Mobile application support
+
+👨‍💻 Author
+
+Rakesh
+
+Java Full Stack Developer (Fresher)
+
+Strong in Java, Spring Boot, React, SQL
