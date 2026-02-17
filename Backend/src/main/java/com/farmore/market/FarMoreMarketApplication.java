@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FarMoreMarketApplication {
+public class FarmoreMarketApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FarMoreMarketApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FarmoreMarketApplication.class, args);
+    }
 
 }

@@ -1,7 +1,9 @@
 package com.farmore.market.service;
+
 import com.farmore.market.model.User;
-import java.util.Optional;
+import java.util.Map;
+
 public interface AuthService {
-    User registerUser(User user);
-    Optional<User> loginUser(User loginDetails);
+    User registerUser(Map<String, Object> request);
+    User loginUser(Map<String, String> credentials);
 }
