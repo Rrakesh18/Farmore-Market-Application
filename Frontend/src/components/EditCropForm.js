@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 function EditCropForm({ crop, onCropUpdated, onCancel }) {
-    const { t } = useLanguage();
+    useLanguage();
     const [formData, setFormData] = useState({
         cropName: crop.cropName,
         price: crop.price,
